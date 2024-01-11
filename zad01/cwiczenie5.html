@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moja strona</title>
+    <style>
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+        }
+        table {
+            border-collapse: collapse;
+            width: 50%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #0077b6;
+            color: white;
+        }
+        tbody tr {
+            background-color: #a8dadc;
+        }
+        tfoot tr {
+            background-color: #e63946;
+            color: white;
+            font-weight: bold;
+        }
+        img {
+            float: right;
+            margin-left: 20px;
+        }
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Oceny</h1>
+    </header>
+    <article>
+        <h2>Klasa 1A</h2>
+        <p>Całkiem mała klasa ale i tak policzymy średnią.</p>
+        <div class="container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Imie</th>
+                        <th>Nazwisko</th>
+                        <th>Ocena</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Jan</td>
+                        <td>Kowalski</td>
+                        <td id="mark[0]">5</td>
+                    </tr>
+                    <tr>
+                        <td>Anna</td>
+                        <td>Nowak</td>
+                        <td id="mark[1]">4</td>
+                    </tr>
+                    <tr>
+                        <td>Ocena średnia</td>
+                        <td></td>
+                        <td id="average-mark"></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td id="passed", colspan="3">Klasyfikacja uczniów</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <figure>
+                <img src="obrazek.jpg" alt="Oko">
+                <figcaption>Obrazek</figcaption>
+            </figure>
+        </div>
+    </article>
+    <script>
+        let marks = document.querySelectorAll('[id^="mark"]');
+        let sum = 0;
+        for (let i = 0; i < marks.length; i++) {
+            sum += parseInt(marks[i].innerHTML);
+        }
+        let average = sum / marks.length;
+        document.getElementById('average-mark').innerHTML = average;
+        let passed = document.getElementById('passed');
+        if (average > 4.0) {
+            passed.textContent += ': Uczniowie powyżej normy';
+        } else {
+            passed.textContent += ': Uczniowie poniżej normy';
+        }
+    </script>
+</body>
+</html>

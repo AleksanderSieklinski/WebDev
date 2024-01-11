@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite
+}
+h1 {
+    color: #333333;
+    text-align: center;
+
+}
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+input[type="button"] {
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+canvas {
+    display: block;
+    margin: 20px auto;
+    border: 1px solid black;
+}

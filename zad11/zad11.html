@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Form</title>
+    <link rel="stylesheet" href="zad11.css">
+</head>
+<body>
+    <h1>Dodaj studenta</h1>
+    <form onsubmit="event.preventDefault(); createStudent(fname.value, lname.value, email.value);">
+        <input id="fname" type="text" placeholder="First Name">
+        <input id="lname" type="text" placeholder="Last Name">
+        <input id="email" type="email" placeholder="Email">
+        <button type="submit">Create Student</button>
+    </form>
+    <h1>Wypisz studentow</h1>
+    <button onclick="getStudents()">Wypisz studentow</button>
+
+    <h1>Wypisz studenta po ID</h1>
+    <form onsubmit="event.preventDefault(); getStudentById(id.value);">
+        <input id="id" type="text" placeholder="ID">
+        <button type="submit">Wypisz studenta</button>
+    </form>
+    <h1>Usun studenta po ID</h1>
+    <form onsubmit="event.preventDefault(); deleteStudentById(idDelete.value);">
+        <input id="idDelete" type="text" placeholder="ID">
+        <button type="submit">Usun studenta</button>
+    </form>
+    <h1>Update studenta po ID</h1>
+    <form onsubmit="event.preventDefault(); updateStudentById(idUpdate.value, fnameUpdate.value, lnameUpdate.value, emailUpdate.value);">
+        <input id="idUpdate" type="text" placeholder="ID">
+        <input id="fnameUpdate" type="text" placeholder="First Name">
+        <input id="lnameUpdate" type="text" placeholder="Last Name">
+        <input id="emailUpdate" type="email" placeholder="Email">
+        <button type="submit">Update Studenta</button>
+    </form>
+    <h1>Odpowiedzi z serwera</h1>
+        <div id="responses"></div>
+    <script src="zad11.js"></script>
+</body>
+</html>

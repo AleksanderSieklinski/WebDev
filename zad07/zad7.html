@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="zad7.css"></link>
+    <script src="zad7.js"></script>
+</head>
+<body>
+    <h1>Quiz: Ktora pore roku lubisz?</h1>
+    <form id="quiz">
+        <input type="radio" name="pora_roku" id="Zima" value="Zima"><label for="Zima">Zima</label>
+        <input type="radio" name="pora_roku" id="Wiosna" value="Wiosna"><label for="Wiosna">Wiosna</label>
+        <input type="radio" name="pora_roku" id="Lato" value="Lato"><label for="Lato">Lato</label>
+        <input type="radio" name="pora_roku" id="Jesien" value="Jesien"><label for="Jesien">Jesien</label>
+        <input type="button" value="Wyslij" onclick="sendRequest()" />
+       </form>
+    <canvas id="histogram" width="800" height="400"></canvas>
+</body>
+</html>

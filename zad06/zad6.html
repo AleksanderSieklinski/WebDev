@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="zad6.css"></link>
+    <title>Draw a Triangle</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th></th>
+            <th colspan = "2">Wierzcholek 1:</th>
+            <th>Wierzcholek 2:</th>
+            <th>Wierzcholek 3:</th>
+        </tr>
+        <form id="triangleForm">
+            <tr>
+                <th colspan = "2">X:</th>
+                <td><label for="x1">X1:</label><input type="number" id="x1" name="x1"></td>
+                <td><label for="x2">X2:</label><input type="number" id="x2" name="x2"></td>
+                <td><label for="x3">X3:</label><input type="number" id="x3" name="x3"></td>
+            </tr>
+            <tr>
+                <th colspan = "2">Y:</th>
+                <td><label for="y1">Y1:</label><input type="number" id="y1" name="y1"></td>
+                <td><label for="y2">Y2:</label><input type="number" id="y2" name="y2"></td>
+                <td><label for="y3">Y3:</label><input type="number" id="y3" name="y3"></td>
+            </tr>
+            <tr>
+                <td colspan = "2"><input type="submit" value="Draw Triangle"></td>
+            </tr>
+        </form>
+    </table>
+    <h2>Canvas</h2>
+    <canvas id="canvas" width="500" height="500"></canvas>
+    <h2>SVG</h2>
+    <svg height="500" width="500"><path/></svg>
+    <script src="zad6.js"></script>
+</body>
+</html>

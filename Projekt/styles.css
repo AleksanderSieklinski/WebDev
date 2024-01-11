@@ -1,0 +1,72 @@
+body,header {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: antiquewhite;
+    text-align: left;
+}
+form,table {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+div.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+}
+div.explanation {
+    font-size: 0.8em;
+    margin: 20px;
+    font-style: italic;
+    font-size: large;
+}
+button {
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+a {
+    display: flex;
+}
+button:hover {
+    background-color: #ddd;
+}
+button.active {
+    background-color: #ccc;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 40px;
+    margin: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+input[type="submit"]:hover {
+    background-color: #ddd;
+}
+canvas {
+    flex-grow: 1;
+    border: 1px solid black;
+}
+nav {
+    margin: 20px 0;
+    text-align: left;
+}
+main {
+    display: flex;
+}
+.formulas-container {
+    display: flex;
+    justify-content: space-between;
+}
+.formula {
+    width: 55%; /* Adjust as needed */
+}

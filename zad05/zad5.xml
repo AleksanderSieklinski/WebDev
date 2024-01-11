@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<products>
+  <group namegrp="Owoce">
+    <product lp="1" name="Jabłka" quantity="10" price="5.99"/>
+    <product lp="2" name="Pomarańcze" quantity="5" price="9.99"/>
+    <product lp="3" name="Gruszki" quantity="20" price="2.99"/>
+  </group>
+  <group namegrp="Warzywa">
+    <product lp="1" name="Kalafior" quantity="15" price="7.99"/>
+    <product lp="2" name="Brokuł" quantity="8" price="12.99"/>
+  </group>
+</products>

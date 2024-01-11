@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Service</title>
+</head>
+<body>
+    <h1>Book Service</h1>
+
+    <div id="login">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="login(document.getElementById('username').value, document.getElementById('password').value)">Login</button>
+    </div>
+
+    <div id="books">
+        <h2>Books</h2>
+        <button onclick="getBooks(token)">Get Books</button>
+        <div id="bookList"></div>
+    </div>
+
+    <div id="refresh">
+        <h2>Refresh Token</h2>
+        <button onclick="refreshTokenFun(refreshToken)">Refresh Token</button>
+    </div>
+
+    <div id="logout">
+        <h2>Logout</h2>
+        <button onclick="logout(token)">Logout</button>
+    </div>
+</body>
+<script>
+    var token = "";
+    var refreshToken = "";
+    async function login(username, password) {
+        const response = await fetch('http://pascal.fis.agh.edu.pl:7007/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
+        const data = await response.json();
+        token = data.accessToken;
+        refreshToken = data.refreshToken;
+        console.log(data);
+        console.log(token);
+        console.log(refreshToken);
+        return data;
+    }
+    async function getBooks(token) {
+    const response = await fetch('http://pascal.fis.agh.edu.pl:7007/books', {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        }
+    });
+    if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const data = await response.json();
+    return data;
+    }
+
+    async function refreshTokenFun(refreshToken) {
+        const response = await fetch('http://pascal.fis.agh.edu.pl:7007/token', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token: refreshToken })
+        });
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        return data;
+    }
+    async function logout(token) {
+        const response = await fetch('http://pascal.fis.agh.edu.pl:7007/logout', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token })
+        });
+        return response.ok;
+    }
+</script>
+</html>

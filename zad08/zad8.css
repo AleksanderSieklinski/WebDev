@@ -1,0 +1,72 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite
+}
+/*Form*/
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+label {
+    margin: 10px;
+}
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+.tab button {
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.tab button:hover {
+    background-color: #ddd;
+}
+.tab button.active {
+    background-color: #ccc;
+}
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 40px;
+    margin: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+/*List table*/
+#messages table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#messages table, #messages th, #messages td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+#messages th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+#messages tr:nth-child(even) {
+    background-color: #f2f2f2;
+}

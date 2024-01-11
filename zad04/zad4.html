@@ -1,0 +1,63 @@
+<!DOCTYPE html SYSTEM "about:legacy-compact">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+                    Laboratorium 4 - ćwiczenia
+                </title>
+<link rel="stylesheet" type="text/css" href="zad4.css">
+</head>
+<body>
+<h1 id="h1o">
+                  Laboratorium 4 - ćwiczenia
+                </h1>
+<ul>
+<li id="desc">Ćwiczenie 1 - lista wszystkich studentów </li>
+<li id="desc">Ćwiczenie 2 - posortowana lista studentów </li>
+<li id="desc">Ćwiczenie 3 - posortowana lista studentów po roku studiów, nazwisku i imieniu</li>
+<li id="desc">Ćwiczenie 4 - lista studentów na poszczególnych kierunkach</li>
+</ul>
+<h2 id="h1o">Ćwiczenie 1 - lista wszystkich studentów </h2>
+<p id="desc">
+            Do realizacji tego zadania zostanie wykorzystany dokument XSL (dok1.xsl) zawierający dwa szablony, pierwszy zostanie dopasowny do korzenia dokumentu XML, drugi natomiast będzie odczytywał zawartość węzłów
+            student
+            . Przetworzenie arkusza XSL przez procesor XSLT jest zgodne z wcześniej opisanym przypadkiem. W wyniku transformacji XSLT zostanie utworzony dokument HTML.
+        </p>
+<pre id="frame">
+             &lt;?xml version="1.0" ?&gt; &lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" &gt; &lt;xsl:output method="html" version="1.0" indent="yes" doctype-system="about:legacy-compact" /&gt; &lt;!-- szablon dopasowujacy sie do korzenia dokumentu XML --&gt; &lt;xsl:template match="/"&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt; Lista studentow na wydziale &lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt; Lista studentow na wydziale &lt;/h1&gt; &lt;table&gt; &lt;tr&gt;&lt;th&gt;Imie&lt;/th&gt;&lt;th&gt;nazwisko&lt;/th&gt;&lt;th&gt;Rok&lt;/th&gt;&lt;/tr&gt; &lt;!-- wyszukiwanie wezlow student w dokumencie XML --&gt; &lt;xsl:apply-templates select="//student" /&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt; &lt;/xsl:template&gt; &lt;!-- szablon dopasowujacy sie do wezla student --&gt; &lt;xsl:template match="student"&gt; &lt;tr&gt; &lt;td&gt;&lt;xsl:value-of select="imie" /&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select="nazwisko" /&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select="rok" /&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/xsl:template&gt; &lt;/xsl:stylesheet&gt; 
+        </pre>
+<h2 id="h1o">Ćwiczenie 2 - posortowana lista studentów </h2>
+<p id="desc">
+            Do realizacji tego zadania zostanie wykorzystany dokument XSL (dok2.xsl) zawierający dwa szablony, pierwszy zostanie dopasowny do korzenia dokumentu XML, drugi natomiast będzie szablonem nazwanym, który będzie odczytywał zawartość węzłów
+            student
+            . Tak jak poprzednio wzorzec pierwszy jest dopasowany do korzenia dokumentu XML. W ramach szablonu wykorzystano wcześniej omówioną funkcjonalność iteratora i polecenia sortującego (polecenia &lt;xsl:for-each /&gt; i &lt;xsl:sort /&gt;). Po znalezieniu odpowiednich węzłów następuje wywołanie szablonu nazwanego
+            &lt;xsl:call-template name="nazwa" /&gt;
+            , gdzie "nazwa" jest nazwą szablonu. W ramach szablonu zostanie pobrana zawartość podelementów wybranego węzła.
+        </p>
+<pre id="frame">
+             &lt;?xml version="1.0" ?&gt; &lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" &gt; &lt;xsl:output method="html" version="1.0" indent="yes" doctype-system="about:legacy-compact" /&gt; &lt;!-- szablon dopasowujacy sie do korzenia dokumentu XML --&gt; &lt;xsl:template match="/"&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt; Lista studentow na wydziale &lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt; Lista studentow na wydziale &lt;/h1&gt; &lt;table&gt; &lt;tr&gt;&lt;th&gt;Imie&lt;/th&gt;&lt;th&gt;nazwisko&lt;/th&gt;&lt;th&gt;Rok&lt;/th&gt;&lt;/tr&gt; &lt;!-- wyszukiwanie wezlow student w dokumencie XML --&gt; &lt;xsl:for-each select="//student" &gt; &lt;xsl:sort select="nazwisko/text()" /&gt; &lt;xsl:call-template name="student" /&gt; &lt;/xsl:for-each&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt; &lt;/xsl:template&gt; &lt;!-- szablon dopasowujacy sie do wezla student --&gt; &lt;xsl:template name="student" &gt; &lt;!--xsl:template match="student" --&gt; &lt;tr&gt; &lt;td&gt;&lt;xsl:value-of select="imie" /&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select="nazwisko" /&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select="rok" /&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/xsl:template&gt; &lt;/xsl:stylesheet&gt; 
+        </pre>
+<h2 id="h1o">Ćwiczenie 3 - posortowana lista studentów po roku studiów, nazwisku i imieniu</h2>
+<p id="desc">
+            Do realizacji tego zadania zostanie wykorzystany dokument XSL (dok3.xsl) zawierający dwa szablony, pierwszy zostanie dopasowny do korzenia dokumentu XML, drugi natomiast będzie szablonem nazwanym, który będzie odczytywał zawartość węzłów
+            student
+            . Konstrukcja szablonów jest kopią ćwiczenia drugiego. Do sortowania studentów wykorzystamy jednak trzy polecenia &lt;xsl:sort /&gt; w żądanej kolejności sortowania. W ramach polecenia
+            &lt;xsl:sort /&gt;
+            umieszczono dodatkowy atrybut
+            data-type
+            , który dla sortowanych wartości numerycznych przyjmuje wartość "number" a dla wartości tekstowych "text".
+        </p>
+<pre id="frame">
+             &lt;?xml version="1.0" ?&gt; &lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" &gt; &lt;xsl:output method="html" version="1.0" indent="yes" doctype-system="about:legacy-compact" /&gt; &lt;!-- szablon dopasowujacy sie do korzenia dokumentu XML --&gt; &lt;xsl:template match="/"&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt; Lista studentow na wydziale &lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt; Lista studentow na wydziale &lt;/h1&gt; &lt;table&gt; &lt;tr&gt;&lt;th&gt;Imie&lt;/th&gt;&lt;th&gt;nazwisko&lt;/th&gt;&lt;th&gt;Rok&lt;/th&gt;&lt;/tr&gt; &lt;!-- wyszukiwanie wezlow student w dokumencie XML --&gt; &lt;xsl:for-each select="//student" &gt; &lt;xsl:sort select="rok/text()" data-type="number" /&gt; &lt;xsl:sort select="nazwisko/text()" data-type="text" /&gt; &lt;xsl:sort select="imie/text()" data-type="text" /&gt; &lt;xsl:call-template name="student" /&gt; &lt;/xsl:for-each&gt; &lt;/table&gt; &lt;/body&gt; &lt;/html&gt; &lt;/xsl:template&gt; &lt;!-- szablon dopasowujacy sie do wezla student --&gt; &lt;xsl:template name="student" &gt; &lt;!--xsl:template match="student" --&gt; &lt;tr&gt; &lt;td&gt;&lt;xsl:value-of select="imie" /&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select="nazwisko" /&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select="rok" /&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/xsl:template&gt; &lt;/xsl:stylesheet&gt; 
+        </pre>
+<h2 id="h1o">Ćwiczenie 4 - lista studentów na poszczególnych kierunkach</h2>
+<p id="desc">
+            Do realiacji tego zadania zostanie wykorzystany dokument XSL (dok4.xsl) zawierajacy trzy szablony. Pierwszy szablon dopasowuje korzeń dokumentu XML, drugi dopasowuje kolejne wydziały, natomiast trzeci dopasowuje węzły
+            student
+            .
+        </p>
+<pre id="frame">
+             &lt;?xml version="1.0" ?&gt; &lt;xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" &gt; &lt;xsl:output method="html" version="1.0" indent="yes" doctype-system="about:legacy-compact" /&gt; &lt;xsl:template match="/"&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt; Lista studentow na wydziale &lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt; Lista studentow na wydziale &lt;/h1&gt; &lt;xsl:apply-templates select="wydzial/kierunek" /&gt; &lt;/body&gt; &lt;/html&gt; &lt;/xsl:template&gt; &lt;xsl:template match="kierunek"&gt; &lt;h2&gt;&lt;xsl:value-of select="./nazwa" /&gt;&lt;/h2&gt; &lt;table border="1" cellpadding="5"&gt; &lt;tr&gt; &lt;th&gt;Imie&lt;/th&gt; &lt;th&gt;Nazwisko&lt;/th&gt; &lt;th&gt;Rok&lt;/th&gt; &lt;/tr&gt; &lt;xsl:apply-templates select="student" /&gt; &lt;/table&gt; &lt;/xsl:template&gt; &lt;xsl:template match="student"&gt; &lt;tr&gt; &lt;td&gt;&lt;xsl:value-of select="imie" /&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select="nazwisko" /&gt;&lt;/td&gt; &lt;td&gt;&lt;xsl:value-of select="rok" /&gt;&lt;/td&gt; &lt;/tr&gt; &lt;/xsl:template&gt; &lt;/xsl:stylesheet&gt; 
+        </pre>
+</body>
+</html>

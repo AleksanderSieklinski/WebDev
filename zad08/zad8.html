@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Message Service</title>
+    <link rel="stylesheet" type="text/css" href="zad8.css">
+    <script src="zad8.js"></script>
+</head>
+<body>
+    <div class="tab">
+        <button class="tablinks" onclick="openTab(event, 'Form')">Form</button>
+        <button class="tablinks" onclick="openTab(event, 'List')">List</button>
+    </div>
+    <div id="Form" class="tabcontent">
+        <form id="messageForm" method="post" onsubmit="loadMessages()">
+            <label for="temat">Temat: (*pole wymagane) </label><input type="text" id="temat" name="temat" required>
+            <label for="tresc">Tresc: (*pole wymagane) </label><textarea id="tresc" name="tresc" required></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <div id="List" class="tabcontent">
+        <div id="messages"></div>
+    </div>
+</body>
+</html>

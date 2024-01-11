@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: antiquewhite;
+}
+form,table {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+button {
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+a {
+    display: flex;
+    justify-content: center;
+}
+button:hover {
+    background-color: #ddd;
+}
+button.active {
+    background-color: #ccc;
+}
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 40px;
+    margin: 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

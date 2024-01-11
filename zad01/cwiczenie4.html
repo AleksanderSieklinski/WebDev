@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Moja strona</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0;
+        }
+        nav {
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        nav a {
+            text-decoration: none;
+            padding: 10px;
+        }
+        nav a:hover {
+            background-color: blue;
+            color: #0077b6;
+        }
+    </style>
+</head>
+<body>
+    <fieldset>
+        <legend id="naglowek">Nagłówek</legend>
+            <nav>
+                <table>
+                    <tr>
+                        <td><a href="#sekcja1">Sekcja 1</a></td>
+                        <td><a href="#sekcja2">Sekcja 2</a></td>
+                        <td><a href="#sekcja3">Sekcja 3</a></td>
+                    </tr>
+            </nav>
+            <p id="sekcja1">To jest sekcja <span style="color: red;">1</span>.</p>
+            <p id="sekcja2">To jest sekcja <span style="color: purple;">2</span>.</p>
+            <p id="sekcja3">To jest sekcja <span style="color: green;">3</span>.</p>
+    </fieldset>
+</body>
+</html>

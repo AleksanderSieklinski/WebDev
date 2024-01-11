@@ -1,0 +1,31 @@
+body {
+  background-color: #fff;
+  color: #00b7ff;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 10px;
+}
+
+#frame {
+  border: 1px solid #00b7ff;
+  padding: 10px;
+  margin: 10px;
+}
+
+#h1o {
+  color: #0026ff;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+#desc {
+  color: #0077ff;
+  font-size: 15px;
+  font-weight: bold;
+  text-align: left;
+}
+pre#frame {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
